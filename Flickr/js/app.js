@@ -12,7 +12,14 @@ var main = function () {
 		// we'll iterate over each item object using forEach loop & 
 		// print out each URL individually
 		flickrResponse.items.forEach (function (photo) {
-			console.log(photo.media.m);	
+			// create new jq element to hold the image
+			var $img = $("<img>");
+			
+			// set the src attribute to the url contained in the response
+			$img.attr("src", photo.media.m);
+			
+			// attach image tag to main photos element
+			$("main .photos").append($img);
 		});
 	});
 };
