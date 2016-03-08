@@ -13,13 +13,15 @@ var main = function () {
 		// print out each URL individually
 		flickrResponse.items.forEach (function (photo) {
 			// create new jq element to hold the image
-			var $img = $("<img>");
+			// but hide it so we can fade it in.
+			var $img = $("<img>").hide();
 			
 			// set the src attribute to the url contained in the response
 			$img.attr("src", photo.media.m);
-			
-			// attach image tag to main photos element
+						
+			// attach image tag to main photos element and then fade it in.
 			$("main .photos").append($img);
+			$img.fadeIn();
 		});
 	});
 };
