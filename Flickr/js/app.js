@@ -8,9 +8,12 @@ var main = function () {
 		"tags=dogs&format=json&jsoncallback=?"; 
 		
 	$.getJSON(url, function (flickrResponse) {
-		// we'll simply print the response to the console
-		// for the time being
-		console.log(flickrResponse);		
+		// instead of printing entire object,
+		// we'll iterate over each item object using forEach loop & 
+		// print out each URL individually
+		flickrResponse.items.forEach (function (photo) {
+			console.log(photo.media.m);	
+		});
 	});
 };
 
